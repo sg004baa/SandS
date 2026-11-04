@@ -1,4 +1,3 @@
-#[derive(PartialEq)]
 enum KeyEvent {
     SpaceDown,
     SpaceUp,
@@ -18,10 +17,10 @@ impl SandS {
     }
 
     fn handle(&mut self, event: KeyEvent) {
-        if event == KeyEvent::SpaceDown {
-            self.space_pressed = true
-        } else if event == KeyEvent::SpaceUp {
-            self.space_pressed = false
+        match event {
+            KeyEvent::SpaceDown => self.space_pressed = true,
+            KeyEvent::SpaceUp => self.space_pressed = false,
+            _ => {}
         }
     }
 }
